@@ -70,7 +70,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
 
       {/* Mobile Sidebar */}
       <div
-        className={`fixed top-0 overflow-y-auto left-0 z-40 w-64 h-full bg-[#1c3f5eb9]  transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
+        className={`fixed top-0 overflow-y-auto left-0 z-40 w-64 h-full bg-[#1c3f5e]  transform ${isSidebarOpen ? "translate-x-0" : "-translate-x-full"
           } transition-transform duration-300 ease-in-out md:hidden`}
       >
         <div onClick={toggleSidebar} className="absolute top-0 right-0 p-4">
