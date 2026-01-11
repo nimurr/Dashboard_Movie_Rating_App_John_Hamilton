@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoIosLogOut } from "react-icons/io";
 import { IoSettingsSharp } from "react-icons/io5";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "/public/logo/dash_logo.png";
+import logo from "/Images/Auth/logo.png";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 import { MdDashboard } from "react-icons/md";
@@ -39,8 +39,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
     <div className="!bg-[#1a3c58]">
       {/* Desktop Sidebar */}
       <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full !bg-[#1a3c58] fixed ">
-        <Link to={"/"} className="flex flex-col justify-center items-center pt-5 gap-2">
-          <img src={logo} alt="logo" className="w-20 h-20 shadow rounded mb-5 " />
+        <Link to={"/"} className="flex flex-col justify-center items-center gap-2">
+          <img src={logo} alt="logo" className="w-28 shadow rounded my-10 " />
         </Link>
         <ul className="flex flex-col bg-[#1a3c58] gap-5">
           {sidebarItems.map((item) => (
@@ -76,8 +76,8 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
         <div onClick={toggleSidebar} className="absolute top-0 right-0 p-4">
           <RxCross1 className="size-6 text-white" />
         </div>
-        <div className="flex flex-col justify-center items-center pt-5 gap-2 ">
-          <img src={logo} alt="logo" className=" w-20 h-20 rounded shadow mb-5" />
+        <div className="flex flex-col justify-center items-center gap-2 ">
+          <img src={logo} alt="logo" className="w-28 shadow rounded my-10 " />
         </div>
         <ul className="flex flex-col gap-3 mt-10">
           {sidebarItems.map((item) => (
