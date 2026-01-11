@@ -1,5 +1,6 @@
-
-import React from 'react';
+import React, { useState } from 'react';
+import { RiUserForbidLine } from 'react-icons/ri';
+import { Modal, Button } from 'antd';
 
 const users = [
     {
@@ -35,9 +36,28 @@ const users = [
 ];
 
 const RecentUsers = () => {
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [selectedUser, setSelectedUser] = useState(null);
+
+    const showModalForBlockThisUser = (user) => {
+        setSelectedUser(user);
+        setIsModalOpen(true);
+    };
+
+    const handleCancel = () => {
+        setIsModalOpen(false);
+        setSelectedUser(null);
+    };
+
+    const handleBlockUser = () => {
+        // TODO: API call to block user
+        console.log('Blocked user:', selectedUser);
+        handleCancel();
+    };
+
     return (
         <div className="w-full rounded-2xl overflow-x-auto bg-[#1a3c58] px-6 text-white shadow-xl mb-5">
-            <div className=" min-w-[1000px]">
+            <div className="min-w-[1000px]">
                 <table className="w-full text-sm">
                     <thead>
                         <tr className="text-left text-slate-400 border-b border-slate-700">
@@ -54,10 +74,7 @@ const RecentUsers = () => {
                     </thead>
                     <tbody>
                         {users.map((user) => (
-                            <tr
-                                key={user.no}
-                                className="border-b border-slate-800 transition"
-                            >
+                            <tr key={user.no} className="border-b border-slate-800">
                                 <td className="py-5">{user.no}</td>
                                 <td className="py-5 font-medium">@{user.username}</td>
                                 <td className="py-5 text-slate-300">{user.email}</td>
@@ -75,15 +92,39 @@ const RecentUsers = () => {
                                         {user.status}
                                     </span>
                                 </td>
-                                <td className="py-3">
-                                    <button className="text-orange-400 hover:underline text-xs">
-                                        View
-                                    </button>
+                                <td className="py-5">
+                                    <RiUserForbidLine
+                                        onClick={() => showModalForBlockThisUser(user)}
+                                        className="cursor-pointer text-2xl text-red-400 hover:text-red-300"
+                                    />
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
+            </div>
+
+            {/* Block User Modal */}
+            <div className='bg-black'>
+                <Modal
+                    title="Block User"
+                    open={isModalOpen}
+                    onCancel={handleCancel}
+                    width={400}
+                    footer={null}
+                    centered
+                >
+                    <p className="mb-6">
+                        Are you sure you want to block{' '}
+                        <span className="font-semibold">@{selectedUser?.username}</span>?
+                    </p>
+                    <div className="flex justify-end gap-3 mt-10">
+                        <Button onClick={handleCancel}>Cancel</Button>
+                        <Button danger type="primary" onClick={handleBlockUser}>
+                            Block User
+                        </Button>
+                    </div>
+                </Modal>
             </div>
         </div>
     );
