@@ -1,13 +1,19 @@
 import RevenueSubTrend from "../../component/Home/RevenueSubTrend";
 import Status from "../../component/Home/Status";
+import Usertrend from "../../component/Home/Usertrend";
 
 const DashboardHome = () => {
   return (
     <section>
       <h1 className="text-4xl font-semibold py-5 px-3">Overview</h1>
       <Status />
-      <div>
-        <RevenueSubTrend />
+      <div className="grid grid-cols-3 my-5 gap-5">
+        <div className="col-span-2">
+          <RevenueSubTrend />
+        </div>
+        <div className="col-span-1">
+          <Usertrend />
+        </div>
       </div>
     </section>
   );
