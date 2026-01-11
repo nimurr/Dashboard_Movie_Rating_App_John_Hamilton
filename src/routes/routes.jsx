@@ -18,6 +18,7 @@ import Personalinfo from "../page/ProfileInfo/Personalinfo";
 import PersonalinfoEdit from "../page/ProfileInfo/PersonalinfoEdit";
 import AllFaq from "../page/Faq/AllFaq";
 import UserRequestList from "../page/Users/UserRequestList";
+import MovieandSerise from "../page/Movie&Serise/MovieandSerise";
 
 
 const router = createBrowserRouter([
@@ -36,6 +37,10 @@ const router = createBrowserRouter([
       {
         path: "/users",
         element: <UserRequestList />,
+      },
+      {
+        path: "/movie-and-series",
+        element: <MovieandSerise />,
       },
 
       {
