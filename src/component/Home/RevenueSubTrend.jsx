@@ -20,7 +20,7 @@ const RevenueSubTrend = () => {
     ];
 
     return (
-        <div className="w-full max-w-6xl mx-auto rounded-2xl bg-[#1a3c58] p-6 text-white shadow-xl">
+        <div className="w-full h-full max-w-6xl mx-auto rounded-2xl bg-[#1a3c58] p-6 text-white shadow-xl flex flex-col gap-5 justify-between">
             {/* Header */}
             <div className="flex items-start justify-between mb-6">
                 <div>
@@ -42,10 +42,10 @@ const RevenueSubTrend = () => {
             </div>
 
             {/* Chart */}
-            <div className="h-[320px]">
+            <div className="h-[80%] ">
                 <ResponsiveContainer width="100%" height="100%">
                     <LineChart data={revenueSubscriberData}>
-                        <CartesianGrid strokeDasharray="4 4" stroke="gray" />
+                        <CartesianGrid strokeDasharray="4 " stroke="gray" />
                         <XAxis
                             dataKey="month"
                             stroke="#94a3b8"
