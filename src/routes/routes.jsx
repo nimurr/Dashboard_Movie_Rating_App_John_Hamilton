@@ -17,6 +17,7 @@ import EditAboutUs from "../page/EditAboutUs/EditAboutUs";
 import Personalinfo from "../page/ProfileInfo/Personalinfo";
 import PersonalinfoEdit from "../page/ProfileInfo/PersonalinfoEdit";
 import AllFaq from "../page/Faq/AllFaq";
+import UserRequestList from "../page/Users/UserRequestList";
 
 
 const router = createBrowserRouter([
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
         element: <DashboardHome />,
       },
       //? Start here
+      {
+        path: "/users",
+        element: <UserRequestList />,
+      },
 
       {
         path: "/notification",

@@ -8,12 +8,18 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 import { MdDashboard } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
+import { FaUsers } from "react-icons/fa6";
 
 const sidebarItems = [
   {
     path: "/",
     name: "Dashboard",
     icon: <MdDashboard className="size-6" />,
+  },
+  {
+    path: "/users",
+    name: "Users",
+    icon: <FaUsers className="size-6" />,
   },
   //? Start here
 
