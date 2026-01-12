@@ -30,7 +30,6 @@ const Settings = () => {
       title: "Change password",
       path: "change-password",
     },
-
     {
       title: "Privacy Policy",
       path: "privacy-policy",

@@ -3,7 +3,7 @@ import { useState } from "react";
 import { IoIosLogOut, IoIosWarning } from "react-icons/io";
 import { IoSettingsSharp } from "react-icons/io5";
 import { Link, NavLink, useNavigate } from "react-router-dom";
-import logo from "/Images/Auth/logo.png";
+import logo from "/Images/Auth/admin-logo.png";
 import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 import { MdDashboard } from "react-icons/md";
@@ -62,7 +62,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
       {/* Desktop Sidebar */}
       <div className="hidden overflow-y-auto md:block w-full md:w-[200px] lg:w-[250px] xl:w-[280px] h-full !bg-[#1a3c58] fixed ">
         <Link to={"/"} className="flex flex-col justify-center items-center gap-2">
-          <img src={logo} alt="logo" className="w-28 shadow rounded my-10 " />
+          <img src={logo} alt="logo" className="w-32 mt-10 mb-20" />
         </Link>
         <ul className="flex flex-col bg-[#1a3c58] gap-5">
           {sidebarItems.map((item) => (
@@ -70,7 +70,7 @@ const Sidebar = ({ isSidebarOpen, toggleSidebar }) => {
               key={item.name}
               to={item.path}
               className={({ isActive }) =>
-                `w-[80%] mx-auto px-5 py-2 flex justify-start items-center gap-3 rounded text-white ${isActive ? "bg-[#152e44] !text-white " : ""
+                `w-[80%] mx-auto px-5 py-2 border border-[#1a3c58] hover:border-orange-500 flex justify-start items-center gap-3 rounded text-white ${isActive ? "bg-[#152e44] !border-orange-500 !text-white " : ""
                 }`
               }
             >
