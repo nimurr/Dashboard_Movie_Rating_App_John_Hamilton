@@ -22,10 +22,6 @@ const Settings = () => {
     console.log(`switch to ${checked}`);
   };
   const settingsItem = [
-    // {
-    //   title: "Personal Information",
-    //   path: "personal-info",
-    // },
     {
       title: "Personal Information",
       path: "personal-info",
@@ -113,7 +109,7 @@ const Settings = () => {
           className="w-full p-4 mb-2 text-sm rounded-lg bg-[#1a3c58] hover:bg-transparent hover:border-orange-500 border flex items-center justify-between cursor-pointer "
           onClick={() => handleNavigate(setting.path)}
         >
-          <h2 className="text-xl">{setting.title}</h2>
+          <h2 className="text-lg">{setting.title}</h2>
           <h2>
             {setting.path === "notification" ? (
               <Switch defaultChecked onChange={onChange} />
