@@ -19,6 +19,7 @@ import PersonalinfoEdit from "../page/ProfileInfo/PersonalinfoEdit";
 import AllFaq from "../page/Faq/AllFaq";
 import UserRequestList from "../page/Users/UserRequestList";
 import MovieandSerise from "../page/Movie&Serise/MovieandSerise";
+import MovieandSeriseDetails from "../page/Movie&Serise/MovieandSeriseDetails";
 
 
 const router = createBrowserRouter([
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
       {
         path: "/movie-and-series",
         element: <MovieandSerise />,
+      },
+      {
+        path: "/movie-and-series/:movieId",
+        element: <MovieandSeriseDetails />,
       },
 
       {

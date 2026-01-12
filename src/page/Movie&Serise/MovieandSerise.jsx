@@ -2,6 +2,7 @@ import React from 'react';
 import { FaChevronLeft } from 'react-icons/fa6';
 import { FiTrash2 } from 'react-icons/fi';
 import { IoSearch } from 'react-icons/io5';
+import { Link } from 'react-router-dom';
 
 const movies = Array.from({ length: 8 }).map((_, i) => ({
     id: i + 1,
@@ -60,9 +61,9 @@ const MovieandSerise = () => {
 
                                 {/* Buttons */}
                                 <div className="flex justify-between items-center mt-3">
-                                    <button className="bg-orange-500 px-4 py-1 rounded text-white text-sm hover:bg-orange-600 transition">
+                                    <Link to={`/movie-and-series/${movie.id}`} className="bg-orange-500 px-4 py-1 rounded text-white text-sm hover:bg-orange-600 transition">
                                         View Details
-                                    </button>
+                                    </Link>
                                     <FiTrash2 className="text-red-500 cursor-pointer hover:text-red-400 transition" />
                                 </div>
                             </div>
