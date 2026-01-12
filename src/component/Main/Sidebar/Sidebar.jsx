@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
-import { IoIosLogOut } from "react-icons/io";
+import { IoIosLogOut, IoIosWarning } from "react-icons/io";
 import { IoSettingsSharp } from "react-icons/io5";
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import logo from "/Images/Auth/logo.png";
@@ -31,6 +31,11 @@ const sidebarItems = [
     path: "/subscription",
     name: "Subscription",
     icon: <FaCrown className="size-6" />,
+  },
+  {
+    path: "/report-and-issue",
+    name: "Report & Issue",
+    icon: <IoIosWarning className="size-6" />,
   },
   //? Start here
 

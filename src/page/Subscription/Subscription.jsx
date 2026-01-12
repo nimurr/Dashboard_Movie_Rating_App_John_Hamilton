@@ -87,7 +87,7 @@ const Subscription = () => {
                 {subscriptions.map((sub) => (
                     <div
                         key={sub.id}
-                        className="bg-[#0f2435] w-[260px] rounded-xl p-5 shadow-lg"
+                        className="bg-[#1a3c58] w-[260px] rounded-xl p-5 shadow-lg"
                     >
                         <div className="flex items-center gap-2 mb-3">
                             <span className="bg-orange-500 h-10 w-10 flex items-center justify-center rounded-full">

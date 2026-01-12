@@ -1,40 +1,34 @@
+
 import React, { useState } from "react";
 
-const SubscribersAll = () => {
-    /* ---------------- DATA ---------------- */
+const ReportIssue = () => {
     const [data, setData] = useState([
         {
             id: "01",
             name: "Tasmia Hassan",
             email: "tasmia@gmail.com",
-            phone: "+8801629235330",
-            transactionId: "#14529D",
-            lastPayment: "2025-12-22",
-            status: "Active",
+            problem: "Subscription Issue",
+            status: "Resolved",
+            date: "2025-12-22",
             blocked: false,
-            avatar: "https://i.pravatar.cc/150?img=47",
         },
         {
             id: "02",
             name: "Naim Rahman",
             email: "naim@gmail.com",
-            phone: "+8801765432198",
-            transactionId: "#45219A",
-            lastPayment: "2025-12-21",
-            status: "Inactive",
-            blocked: true,
-            avatar: "https://i.pravatar.cc/150?img=12",
+            problem: "Payment Failed",
+            status: "Pending",
+            date: "2025-12-21",
+            blocked: false,
         },
         {
             id: "03",
             name: "Arif Hossain",
             email: "arif@gmail.com",
-            phone: "+8801887654321",
-            transactionId: "#98541B",
-            lastPayment: "2025-12-20",
-            status: "Active",
-            blocked: false,
-            avatar: "https://i.pravatar.cc/150?img=32",
+            problem: "Account Access",
+            status: "In Progress",
+            date: "2025-12-20",
+            blocked: true,
         },
     ]);
 
@@ -46,9 +40,7 @@ const SubscribersAll = () => {
         const matchName = item.name
             .toLowerCase()
             .includes(searchName.toLowerCase());
-        const matchDate = searchDate
-            ? item.lastPayment === searchDate
-            : true;
+        const matchDate = searchDate ? item.date === searchDate : true;
         return matchName && matchDate;
     });
 
@@ -79,7 +71,6 @@ const SubscribersAll = () => {
                     : item
             )
         );
-
         setSelectedUser((prev) => ({
             ...prev,
             blocked: !prev.blocked,
@@ -88,13 +79,13 @@ const SubscribersAll = () => {
 
     return (
         <div className="min-h-screen bg-[#1b3448] text-white px-6 py-6">
-            {/* Header + Filters */}
-            <div className="flex flex-wrap justify-between gap-4 mb-6">
-                <h1 className="text-3xl font-semibold">
+            <div className="flex gap-4 mb-4 flex-wrap justify-between">
+                <h1 className="text-3xl font-semibold mb-6">
                     Subscribers List
                 </h1>
 
-                <div className="flex gap-3 flex-wrap">
+                {/* Filters */}
+                <div className="flex gap-4 mb-4 flex-wrap">
                     <input
                         placeholder="Search by Username"
                         value={searchName}
@@ -104,7 +95,6 @@ const SubscribersAll = () => {
                         }}
                         className="bg-[#0f2435] px-4 py-2 rounded-md outline-none text-sm"
                     />
-
                     <input
                         type="date"
                         value={searchDate}
@@ -122,14 +112,12 @@ const SubscribersAll = () => {
                 <table className="w-full min-w-[1000px] text-sm">
                     <thead className="bg-[#132f44] text-gray-300">
                         <tr>
+                            <th className="py-4 px-4">R.ID</th>
                             <th className="py-4 px-4">Username</th>
                             <th className="py-4 px-4">Email</th>
-                            <th className="py-4 px-4">Phone</th>
-                            <th className="py-4 px-4">Transaction ID</th>
-                            <th className="py-4 px-4">
-                                Last Payment
-                            </th>
+                            <th className="py-4 px-4">Problem</th>
                             <th className="py-4 px-4">Status</th>
+                            <th className="py-4 px-4">Date</th>
                             <th className="py-4 px-4">Action</th>
                         </tr>
                     </thead>
@@ -137,26 +125,19 @@ const SubscribersAll = () => {
                     <tbody className="divide-y divide-gray-700">
                         {currentData.map((item) => (
                             <tr key={item.id}>
-                                <td className="py-4 px-4">
-                                    {item.name}
-                                </td>
-                                <td className="py-4 px-4">
-                                    {item.email}
-                                </td>
-                                <td className="py-4 px-4">
-                                    {item.phone}
-                                </td>
-                                <td className="py-4 px-4 text-orange-400">
-                                    {item.transactionId}
-                                </td>
-                                <td className="py-4 px-4">
-                                    {item.lastPayment}
-                                </td>
+                                <td className="py-4 px-4">{item.id}</td>
+                                <td className="py-4 px-4">{item.name}</td>
+                                <td className="py-4 px-4">{item.email}</td>
+                                <td className="py-4 px-4">{item.problem}</td>
                                 <td className="py-4 px-4">
                                     <span
                                         className={`px-3 py-1 rounded-full text-xs ${item.blocked
-                                                ? "bg-red-600"
-                                                : "bg-green-600"
+                                            ? "bg-red-600"
+                                            : item.status === "Resolved"
+                                                ? "bg-green-600"
+                                                : item.status === "Pending"
+                                                    ? "bg-orange-500"
+                                                    : "bg-blue-500"
                                             }`}
                                     >
                                         {item.blocked
@@ -164,14 +145,16 @@ const SubscribersAll = () => {
                                             : item.status}
                                     </span>
                                 </td>
+                                <td className="py-4 px-4">{item.date}</td>
                                 <td className="py-4 px-4">
                                     <button
-                                        onClick={() =>
-                                            openViewModal(item)
-                                        }
+                                        onClick={() => openViewModal(item)}
                                         className="bg-orange-500 px-3 py-1 rounded-md text-xs"
                                     >
                                         View
+                                    </button>
+                                    <button className="bg-red-500 px-3 py-1 rounded-md text-xs ml-2">
+                                        Delete 
                                     </button>
                                 </td>
                             </tr>
@@ -185,34 +168,26 @@ const SubscribersAll = () => {
                 <div className="flex justify-end gap-2 mt-4 text-sm">
                     <button
                         disabled={currentPage === 1}
-                        onClick={() =>
-                            setCurrentPage((p) => p - 1)
-                        }
+                        onClick={() => setCurrentPage((p) => p - 1)}
                         className="disabled:opacity-40"
                     >
                         Prev
                     </button>
-
                     {[...Array(totalPages)].map((_, i) => (
                         <button
                             key={i}
-                            onClick={() =>
-                                setCurrentPage(i + 1)
-                            }
+                            onClick={() => setCurrentPage(i + 1)}
                             className={`w-7 h-7 rounded-full ${currentPage === i + 1
-                                    ? "bg-orange-500"
-                                    : "bg-[#132f44]"
+                                ? "bg-orange-500"
+                                : "bg-[#132f44]"
                                 }`}
                         >
                             {i + 1}
                         </button>
                     ))}
-
                     <button
                         disabled={currentPage === totalPages}
-                        onClick={() =>
-                            setCurrentPage((p) => p + 1)
-                        }
+                        onClick={() => setCurrentPage((p) => p + 1)}
                         className="disabled:opacity-40"
                     >
                         Next
@@ -220,50 +195,28 @@ const SubscribersAll = () => {
                 </div>
             )}
 
-            {/* View Modal */}
+            {/* ---------------- VIEW MODAL ---------------- */}
             {openModal && selectedUser && (
                 <div className="fixed inset-0 bg-black/60 flex items-center justify-center z-50">
                     <div className="bg-[#1a3c58] w-[420px] rounded-xl p-6">
-                        <div className="flex flex-col items-center mb-4">
-                            <img
-                                src={selectedUser.avatar}
-                                alt="profile"
-                                className="w-20 h-20 rounded-full mb-3"
-                            />
-                            <h3 className="text-lg font-semibold">
-                                {selectedUser.name}
-                            </h3>
-                        </div>
+                        <h3 className="text-lg font-semibold mb-4">
+                            Subscriber Details
+                        </h3>
 
                         <div className="space-y-2 text-sm text-gray-300">
-                            <p className="flex justify-between py-3">
-                                <span>Email</span>
-                                <span>{selectedUser.email}</span>
-                            </p>
-                            <p className="flex justify-between py-3">
-                                <span>Phone</span>
-                                <span>{selectedUser.phone}</span>
-                            </p>
-                            <p className="flex justify-between py-3">
-                                <span>Transaction ID</span>
-                                <span className="text-orange-400">
-                                    {selectedUser.transactionId}
-                                </span>
-                            </p>
-                            <p className="flex justify-between py-3">
-                                <span>Last Payment</span>
-                                <span>
-                                    {selectedUser.lastPayment}
-                                </span>
-                            </p>
+                            <p className="flex items-center justify-between py-3"><b>Name:</b> {selectedUser.name}</p>
+                            <p className="flex items-center justify-between py-3"><b>Email:</b> {selectedUser.email}</p>
+                            <p className="flex items-center justify-between py-3"><b>Problem:</b> {selectedUser.problem}</p>
+                            <p className="flex items-center justify-between py-3"><b>Status:</b> {selectedUser.status}</p>
+                            <p className="flex items-center justify-between py-3"><b>Date:</b> {selectedUser.date}</p>
                         </div>
 
                         <div className="flex gap-3 mt-6">
                             <button
                                 onClick={toggleBlock}
                                 className={`flex-1 py-2 rounded-md ${selectedUser.blocked
-                                        ? "bg-green-600"
-                                        : "bg-red-600"
+                                    ? "bg-green-600"
+                                    : "bg-red-600"
                                     }`}
                             >
                                 {selectedUser.blocked
@@ -272,9 +225,7 @@ const SubscribersAll = () => {
                             </button>
 
                             <button
-                                onClick={() =>
-                                    setOpenModal(false)
-                                }
+                                onClick={() => setOpenModal(false)}
                                 className="flex-1 bg-gray-500 py-2 rounded-md"
                             >
                                 Close
@@ -287,4 +238,4 @@ const SubscribersAll = () => {
     );
 };
 
-export default SubscribersAll;
+export default ReportIssue;

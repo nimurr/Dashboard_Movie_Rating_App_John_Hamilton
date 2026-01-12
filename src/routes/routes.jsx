@@ -22,6 +22,7 @@ import MovieandSerise from "../page/Movie&Serise/MovieandSerise";
 import MovieandSeriseDetails from "../page/Movie&Serise/MovieandSeriseDetails";
 import Subscription from "../page/Subscription/Subscription";
 import SubscribersAll from "../page/Subscription/SubscribersAll";
+import ReportIssue from "../page/Report&Issue/Report&Issue";
 
 
 const router = createBrowserRouter([
@@ -56,6 +57,10 @@ const router = createBrowserRouter([
       {
         path: "/subscribers",
         element: <SubscribersAll />,
+      },
+      {
+        path: "/report-and-issue",
+        element: <ReportIssue />,
       },
 
       {
