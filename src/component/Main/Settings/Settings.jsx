@@ -43,10 +43,10 @@ const Settings = () => {
       title: "Terms & Conditions",
       path: "terms-conditions",
     },
-    {
-      title: "About us",
-      path: "about-us",
-    },
+    // {
+    //   title: "About us",
+    //   path: "about-us",
+    // },
     {
       title: "FAQ",
       path: "all-faq",
@@ -110,7 +110,7 @@ const Settings = () => {
       {settingsItem.map((setting, index) => (
         <div
           key={index}
-          className="w-full p-4 mb-2 text-sm rounded-lg bg-[#1a3c58] hover:bg-transparent hover:border-[#1c4666] border flex items-center justify-between cursor-pointer "
+          className="w-full p-4 mb-2 text-sm rounded-lg bg-[#1a3c58] hover:bg-transparent hover:border-orange-500 border flex items-center justify-between cursor-pointer "
           onClick={() => handleNavigate(setting.path)}
         >
           <h2 className="text-xl">{setting.title}</h2>

@@ -81,13 +81,13 @@ const AllFaq = () => {
     return (
         <div>
             <div className='md:p-4 mt-5 sm:mt-0 flex items-center justify-between'>
-                <Link to={"/settings"} className="flex items-center cursor-pointer ml-6 my-8">
-                    <MdOutlineKeyboardArrowLeft size={30} />
-                    <h1 className="text-xl font-medium ml-2">FAQ</h1>
+                <Link to={"/settings"} className="flex items-center  cursor-pointer my-8">
+                    <MdOutlineKeyboardArrowLeft size={32} />
+                    <h1 className="text-2xl font-medium ml-1">FAQ</h1>
                 </Link>
                 <div>
                     <button
-                        className="bg-[#038c6d] text-white px-10 py-3 text-xl rounded-lg flex items-center gap-2"
+                        className="bg-orange-500 text-white px-10 py-3 text-xl rounded-lg flex items-center gap-2"
                         onClick={showModal} // Open modal when clicking the button
                     >
                         <FaPlus className='text-xl font-semibold text-white' /> Add FAQ
@@ -152,7 +152,7 @@ const AllFaq = () => {
                         <Button onClick={handleCancel} className="bg-gray-400 text-white ">
                             Cancel
                         </Button>
-                        <Button type="primary" htmlType="submit" className="bg-[#038c6d] text-white ">
+                        <Button type="primary" htmlType="submit" className="bg-orange-500 text-white ">
                             Add FAQ
                         </Button>
                     </div>

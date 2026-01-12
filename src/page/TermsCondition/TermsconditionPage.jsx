@@ -28,7 +28,7 @@ const TermsconditionPage = () => {
         </Link>
         <Link to={"/settings/edit-terms-conditions/11"}>
           <button
-            className="bg-[#038c6d] text-white flex items-center gap-2 p-2 rounded-md font-bold"
+            className="bg-orange-500 text-white flex items-center gap-2 p-2 rounded-md font-bold"
             border
           >
             <TbEdit className="size-5" />
@@ -45,8 +45,8 @@ const TermsconditionPage = () => {
       )
         :
         (
-          <div className="w-full h-full ml-3">
-            <div dangerouslySetInnerHTML={{ __html: privacyPolicy?.termsAndConditions }} />
+          <div className="w-full h-full ml-3 text-white">
+            <div dangerouslySetInnerHTML={{ __html: privacyPolicy?.termsAndConditions || "Not found" }} />
           </div>
         )
       }

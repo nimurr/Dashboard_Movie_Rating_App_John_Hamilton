@@ -33,19 +33,20 @@ const EditPrivacyPolicy = () => {
     <section className="w-full h-full min-h-screen ">
       {/* Header Section */}
       <div className="flex justify-between items-center py-5">
-        <Link to="/settings" className="flex gap-4 items-center">
+        <Link to="/settings" className="flex gap-2 items-center">
           <IoChevronBack className="text-2xl" />
           <h1 className="text-2xl font-semibold">Privacy Policy</h1>
         </Link>
       </div>
 
       {/* Form Section */}
-      <div className="w-full p-6 rounded-lg shadow-md">
+      <div className="w-full p-6 rounded-lg bg-[#1a3c58] shadow-md">
         <Form form={form} layout="vertical" onFinish={handleSubmit}>
           {/* React Quill for Privacy Policy Content */}
           <Form.Item name="content" initialValue={content}>
             <ReactQuill
               value={content}
+              className="text-white"
               onChange={(value) => setContent(value)}
               modules={{
                 toolbar: [
@@ -70,7 +71,7 @@ const EditPrivacyPolicy = () => {
           <div className="w-full flex justify-end mt-20 md:mt-16">
             <button
               type="submit"
-              className="bg-[#038c6d] text-white text-xl gap-2 py-2 px-8 rounded-md font-bold"
+              className="bg-orange-500 text-white text-xl gap-2 py-2 px-8 rounded-md font-bold"
               disabled={isLoading}
             >
               {isLoading ? "Updating..." : "Update"}
