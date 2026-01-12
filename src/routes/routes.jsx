@@ -20,6 +20,7 @@ import AllFaq from "../page/Faq/AllFaq";
 import UserRequestList from "../page/Users/UserRequestList";
 import MovieandSerise from "../page/Movie&Serise/MovieandSerise";
 import MovieandSeriseDetails from "../page/Movie&Serise/MovieandSeriseDetails";
+import Subscription from "../page/Subscription/Subscription";
 
 
 const router = createBrowserRouter([
@@ -46,6 +47,10 @@ const router = createBrowserRouter([
       {
         path: "/movie-and-series/:movieId",
         element: <MovieandSeriseDetails />,
+      },
+      {
+        path: "/subscription",
+        element: <Subscription />,
       },
 
       {

@@ -27,6 +27,11 @@ const sidebarItems = [
     name: "Movie and Series",
     icon: <TbMovie className="size-6" />,
   },
+  {
+    path: "/subscription",
+    name: "Subscription",
+    icon: <TbMovie className="size-6" />,
+  },
   //? Start here
 
 
