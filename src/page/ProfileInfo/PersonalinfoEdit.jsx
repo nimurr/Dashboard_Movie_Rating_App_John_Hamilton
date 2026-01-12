@@ -76,12 +76,12 @@ const PersonalinfoEdit = () => {
     return (
         <div className="font-[Aldrich]">
             {/* ✅ Back Button */}
-            <div onClick={() => navigate("/settings/personal-info")} className="flex items-center cursor-pointer ml-6 my-8">
+            <div onClick={() => navigate("/settings/personal-info")} className="flex items-center cursor-pointer   py-8">
                 <MdOutlineKeyboardArrowLeft size={30} />
                 <h1 className="text-xl font-medium ml-2">Edit Profile</h1>
             </div>
 
-            <div className="sm:mx-6 rounded-xl bg-white">
+            <div className="md:p-4 mt-5 sm:mt-0 rounded-xl bg-[#1a3c58]">
                 <Form
                     form={form}
                     layout="vertical"
@@ -91,7 +91,7 @@ const PersonalinfoEdit = () => {
                     <div className="flex flex-col lg:flex-row gap-10">
                         {/* ✅ Profile Picture Section */}
                         <div className="flex flex-col items-center w-full lg:w-1/3 border-dotted border">
-                            <div className="relative sm:w-56 w-48 sm:h-56 h-48 rounded-full flex justify-center items-center mt-5 bg-gray-50 border">
+                            <div className="relative sm:w-56 w-48 sm:h-56 h-48 rounded-full flex justify-center items-center mt-5 bg-gray-500 border">
                                 <Upload name="profile" showUploadList={false} onChange={handleUploadChange}>
                                     <img className="w-44 h-44 rounded-full" src={imageUrl} alt="Profile" />
                                     <Button className="border-none text-md text-blue-500 absolute bottom-6 flex items-center" icon={<LuImagePlus size={20} className="mr-2" />}>
@@ -101,24 +101,24 @@ const PersonalinfoEdit = () => {
                             </div>
 
                             <div className="text-center mt-6">
-                                <p className="text-lg">Admin</p>
-                                <h1 className="text-2xl font-medium">{user?.fullName || "N/A"}</h1>
+                                <p className="text-lg text-white">Admin</p>
+                                <h1 className="text-2xl font-medium text-white">{user?.fullName || "N/A"}</h1>
                             </div>
                         </div>
 
                         {/* ✅ Form Inputs Section */}
                         <div className="flex-1 w-full lg:w-2/3">
                             <div className="flex flex-col gap-6">
-                                <Form.Item label={<span className="text-lg font-medium">Name</span>} name="name">
+                                <Form.Item label={<span className="text-lg font-medium text-white">Name</span>} name="name">
                                     <Input placeholder="Name" className="p-4 rounded-lg border-gray-300 focus:ring-blue-500 focus:border-blue-500" />
                                 </Form.Item>
 
-                                <Form.Item label={<span className="text-lg font-medium">Email</span>} name="email">
+                                <Form.Item label={<span className="text-lg font-medium text-white">Email</span>} name="email">
                                     <Input placeholder="Email" className="p-4 rounded-lg border-gray-300" readOnly />
                                 </Form.Item>
 
                                 <div className="flex flex-col">
-                                    <label className="text-lg font-medium mb-2">Phone Number</label>
+                                    <label className="text-lg font-medium mb-2 text-white">Phone Number</label>
                                     <PhoneInput
                                         placeholder="Enter phone number"
                                         value={phoneNumber}
@@ -134,7 +134,7 @@ const PersonalinfoEdit = () => {
 
                     {/* ✅ Save Changes Button */}
                     <div className="flex sm:justify-end justify-center items-center mt-8">
-                        <Button htmlType="submit" className="h-14 md:px-20 !bg-[#038c6d] !text-white rounded-lg text-lg font-medium">
+                        <Button htmlType="submit" className="h-14 md:px-20 !bg-orange-500 !text-white rounded-lg text-lg font-medium">
                             Save Changes
                         </Button>
                     </div>

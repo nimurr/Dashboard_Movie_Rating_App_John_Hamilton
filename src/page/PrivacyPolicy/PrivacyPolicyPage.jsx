@@ -27,7 +27,7 @@ const PrivacyPolicyPage = () => {
           <h1 className="text-2xl font-semibold">Privacy Policy</h1>
         </Link>
         <Link to={'/settings/edit-privacy-policy'}>
-          <button className="bg-[#038c6d] text-white flex items-center gap-2 p-2 rounded-md font-bold" border>
+          <button className="bg-orange-500 text-white flex items-center gap-2 p-2 rounded-md font-bold" border>
             <TbEdit className="size-5" />
             <span>Edit</span>
           </button>
@@ -41,7 +41,7 @@ const PrivacyPolicyPage = () => {
           <Spin size="large" />
         </div>
       ) : (
-        <div className="w-full h-full ml-3">
+        <div className="w-full h-full ml-3 text-white">
           <div dangerouslySetInnerHTML={{ __html: privacyPolicy?.privacyPolicy }} />
 
         </div>

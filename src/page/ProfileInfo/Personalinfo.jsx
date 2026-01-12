@@ -22,12 +22,12 @@ const Personalinfo = () => {
     return (
         <div className="md:p-4 mt-5 sm:mt-0">
             <div>
-                <Link to={"/settings"} className="flex items-center gap-2 text-xl font-semibold">
+                <Link to={"/settings"} className="flex items-center gap-2 mb-5 text-xl font-semibold">
                     <MdOutlineKeyboardArrowLeft size={30} /> Profile setting
                 </Link>
             </div>
-            <div className="lg:flex md:flex gap-4 bg-white py-10 rounded-xl">
-                <div className="lg:w-1/3 flex flex-col border border-dotted p-4 justify-center items-center gap-8">
+            <div className="lg:flex md:flex gap-4 bg-[#1a3c58] py-10 px-5 rounded-xl">
+                <div className="lg:w-1/3 flex flex-col border border-dotted  justify-center items-center gap-8">
                     <img
                         className="w-40 h-40 border p-2 rounded-full"
                         src={user?.profileImageUrl ? Url + user?.profileImageUrl : User_Profile}
@@ -39,7 +39,7 @@ const Personalinfo = () => {
                     </div>
                 </div>
 
-                <div className="lg:w-2/3 mt-8 lg:mt-0 md:px-5">
+                <div className="lg:w-2/3 mt-8 lg:mt-0 ">
                     <div className="flex flex-col gap-6">
                         <div className="flex flex-col md:flex-row gap-6">
                             <div className="flex-1">
@@ -91,7 +91,7 @@ const Personalinfo = () => {
             <div className="flex gap-2 items-center md:justify-end justify-center mt-8">
                 <div
                     onClick={() => navigate(`/settings/personal-info/edit`)}
-                    className="w-48 !bg-[#038c6d] !text-white py-3 px-6 rounded-lg cursor-pointer flex justify-center items-center gap-2"
+                    className="w-48 !bg-orange-500  !text-white py-3 px-6 rounded-lg cursor-pointer flex justify-center items-center gap-2"
                 >
                     <FaEdit size={17} />
                     <p>Edit Profile</p>

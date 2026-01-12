@@ -114,9 +114,9 @@ const UserRequestList = () => {
           centered
           className="dark-modal"
         >
-          <p className="mb-6 text-slate-200">
+          <p className="mb-6 text-slate-700">
             Are you sure you want to block{' '}
-            <span className="font-semibold text-white">@{selectedUser?.username}</span>?
+            <span className="font-semibold text-orange-500">@{selectedUser?.username}</span>?
           </p>
           <div className="flex justify-end gap-3">
             <Button onClick={handleCancel}>Cancel</Button>
