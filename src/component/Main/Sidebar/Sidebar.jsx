@@ -8,7 +8,7 @@ import { useDispatch } from "react-redux";
 import { logoutUser } from "../../../redux/features/auth/authSlice";
 import { MdDashboard } from "react-icons/md";
 import { RxCross1 } from "react-icons/rx";
-import { FaUsers } from "react-icons/fa6";
+import { FaCrown, FaUsers } from "react-icons/fa6";
 import { TbMovie } from "react-icons/tb";
 
 const sidebarItems = [
@@ -30,7 +30,7 @@ const sidebarItems = [
   {
     path: "/subscription",
     name: "Subscription",
-    icon: <TbMovie className="size-6" />,
+    icon: <FaCrown className="size-6" />,
   },
   //? Start here
 
