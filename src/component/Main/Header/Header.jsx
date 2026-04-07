@@ -77,6 +77,7 @@ const Header = ({ toggleSidebar }) => {
 
       <div className="flex items-center  gap-5 relative">
         {/* ---------------- Notification ---------------- */}
+
         <div className="relative" ref={notifyRef}>
           <button
             onClick={() => setOpenNotify(!openNotify)}
@@ -89,8 +90,11 @@ const Header = ({ toggleSidebar }) => {
           {/* ----------- DROPDOWN ----------- */}
           {openNotify && (
             <div className="absolute -right-10 sm:right-0 mt-3 w-[320px] bg-[#1a3c58] rounded-xl shadow-xl z-50 border border-gray-500">
-              <div className="px-4 py-3 border-b border-gray-500">
+              <div className="px-4 py-3 border-b border-gray-500 flex items-center justify-between">
                 <h3 className="text-sm font-semibold">Notifications</h3>
+                <Link onClick={() => setOpenNotify(false)} className="underline text-sm" to="/notification">
+                  See All
+                </Link>
               </div>
 
               <div className="max-h-[300px] scroll_Hide_item overflow-y-auto p-2 space-y-1">
